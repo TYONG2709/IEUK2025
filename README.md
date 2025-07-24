@@ -13,7 +13,7 @@ Using the provided set of logs - [sample log](./sample-log.log), **identify the 
 ## Identifying the root cause of the problem
 Environment to analyse the [sample log](./sample-log.log):
 - Language: `Python` (pip version 22.0.4)
-- Libraries: `pandas`
+- Libraries: `pandas`, `matplotlib` (for visualisations)
 
 ---
 

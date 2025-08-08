@@ -1,2 +1,4 @@
-pandas
-matplotlib
+pandas # for data manipulation 
+matplotlib # for graph plotting generation
+seaborn # for heatmap graph generation
+ipykernel # jupiter notebook kernel

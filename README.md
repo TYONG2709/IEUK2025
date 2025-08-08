@@ -14,6 +14,7 @@ Using the provided set of logs - [sample log](./sample-log.log), **identify the 
 Environment to analyse the [sample log](./sample-log.log):
 - Language: `Python` (pip version 22.0.4)
 - Libraries: `pandas`, `matplotlib` (for visualisations)
+- Analysis Notebook: 'ipykernel' (for Jupiter notebook)
 
 ---
 
@@ -23,3 +24,5 @@ Questions:
 - which IP addresses are the most active
 - what is the traffic pattern over time (e.g. requests per hour)
 - what is the distribution of User-Agents
+
+https://www.sitelock.com/blog/ddos-how-to-prevent-hackers-from-overloading-your-web-server/#:~:text=Look%20for%20signs%20of%20server%20overload

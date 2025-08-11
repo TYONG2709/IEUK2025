@@ -14,7 +14,7 @@ Using the provided set of logs - [sample log](./sample-log.log), **identify the 
 Environment to analyse the [sample log](./sample-log.log):
 - Language: `Python` (pip version 22.0.4)
 - Libraries: `pandas`, `matplotlib` (for visualisations)
-- Analysis Notebook: 'ipykernel' (for Jupiter notebook)
+- Analysis Notebook: `ipykernel` (for Jupiter notebook)
 
 ---
 

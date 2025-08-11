@@ -2,13 +2,11 @@
 import pandas as pd
 
 def parse_log_line(log_line: str) -> pd.DataFrame:
-    """Parse log line into suitable object.
-
-    Args: 
-        log_line (str): The line of log.
-
-    Returns: 
-        pd.DataFrame: A single line pandas DataFrame consist of the log information.
+    """
+    Parse log line into suitable object.
+    
+    Returns:
+      pd.DataFrame: parsed <code>log_line</code>
     """
     # indices of notations
     square_bracket_1 = log_line.find('[')
@@ -19,57 +17,44 @@ def parse_log_line(log_line: str) -> pd.DataFrame:
     quote_5 = log_line.find('"', quote_3 + 1 + 1 + 1)
     quote_6 = log_line.find('"', quote_5 + 1)
     end = log_line.find('\n')
-
+    # extract ips
     ip = log_line[:square_bracket_1].split(sep=' ')[0]
-
+    # extract regions
     region = log_line[:square_bracket_1].split(sep=' ')[2]
-
+    # extract timestamp
     timestamp = log_line[square_bracket_1 + 1 : square_bracket_2]
-
     # request = method + url + protocol
     request = log_line[quote_1 + 1 : quote_2].split(sep=' ')
     method, url, protocol = request[0], request[1], request[2]
-
     status = log_line[quote_2 + 1 : quote_3].split(sep=' ')[1]
-
     size = log_line[quote_2 + 1 : quote_3].split(sep=' ')[2]
-
+    # extract user agent
     user_agent = log_line[quote_5 + 1 : quote_6]
-
+    # extract connection duration
     duration = log_line[quote_6 + 1 : end]
-
     return {
-        'ip': ip,
-        'region': region,
-        'timestamp': timestamp,
-        'method': method,
-        'url': url,
-        'protocol': protocol,
-        'status': status,
-        'size': size,
-        'user_agent': user_agent,
-        'duration (ms)': duration
+        'ip': ip, 'region': region, 'timestamp': timestamp, 
+        'method': method, 'url': url, 'protocol': protocol,
+        'status': status, 'size': size,
+        'user_agent': user_agent, 'duration (ms)': duration
     }
 
-
 def parse_log_file(file_path: str) -> pd.DataFrame:
-    """Parse log in log files into pandas DataFrame. 
-
-    Args: 
-        file_path (str): The path to the log file.
-
+    """
+    Parse log in log files into pandas DataFrame.
+    
     Returns:
-        pd.DataFrame: A pandas DataFrame consists of logs information.
+      pd.DataFrame: parsed <code>file_path</code> log file.
     """
     # parse log
     records = []
-    try: 
+    try:
         with open(file_path, 'r', encoding="utf-8") as f:
             for line in f:
                 records.append(parse_log_line(line))
     except FileNotFoundError:
         print(f"Error: The file '{file_path}' was not found.")
-
+    # empty df if none got parse
     if not records:
         return pd.DataFrame()
 

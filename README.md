@@ -8,21 +8,23 @@ The main goal for this project is to resolve the concerns from a *small music me
 ## Task
 Using the provided set of logs - [sample log](./sample-log.log), **identify the problem** and determine the **best way to handle the increased traffic**.
 
----
-
 ## Identifying the root cause of the problem
 Environment to analyse the [sample log](./sample-log.log):
 - Language: `Python` (pip version 22.0.4)
 - Libraries: `pandas`, `matplotlib` (for visualisations)
-- Analysis Notebook: `ipykernel` (for Jupiter notebook)
+- Analysis Notebook: `ipykernel` (for Jupyter notebook)
 
----
+View modular code files under folder [`code`](./code/).
 
-### Analysis & Investigation
-Questions:
+## Analysis & Solutions
+Things to consider:
 - which pages are receiving the most visits
 - which IP addresses are the most active
 - what is the traffic pattern over time (e.g. requests per hour)
 - what is the distribution of User-Agents
 
-https://www.sitelock.com/blog/ddos-how-to-prevent-hackers-from-overloading-your-web-server/#:~:text=Look%20for%20signs%20of%20server%20overload
+View [Jupyter notebook](./analysis.ipynb) for analysis report.
+
+**Solutions** - view this [report](./solutions-report.md).
+
+View all visualisations (graphs) under this [folder](./visualisations/).
